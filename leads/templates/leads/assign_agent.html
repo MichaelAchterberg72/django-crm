@@ -1,0 +1,18 @@
+{% extends "base_home.html" %}
+
+{% block title %}{% endblock title %}
+{% block style %}
+
+{% endblock style %}
+
+{% block content %}
+<a href="#">Go Back to Lead</a>
+<hr>
+    <h1>Assign an agent to this lead</h1>
+    <form class="" action="" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" name="button">Submit</button>
+    </form>
+
+{% endblock content %}
