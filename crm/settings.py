@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
     #internal Applications
     'users',
-    'leads',
+    'contacts',
     'agents',
 ]
 
@@ -143,7 +143,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
 AUTH_USER_MODEL = 'users.CustomUser'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-LOGIN_REDIRECT_URL = '/leads/'
+LOGIN_REDIRECT_URL = '/contacts/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 

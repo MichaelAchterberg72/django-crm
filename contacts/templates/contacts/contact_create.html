@@ -8,15 +8,16 @@
 {% block content %}
 <div class="max-w-lg mx-auto">
   <div class="py-5 border-b border-grey-200">
-    <a class="hover:text-blue-500 mt-3" href="{% url 'Leads:LeadList' %}">Go Back to Leads</a>
+    <a class="hover:text-blue-500 mt-3" href="{% url 'Contacts:ContactList' %}">Go Back to Contacts</a>
   </div>
   <div class="py-5 border-t border-grey-200">
-    <h1 class="text-4xl text-grey-800">Create a new lead</h1>
+    <h1 class="text-4xl text-grey-800">Create a new contact</h1>
   </div>
   <form class="mt-5" action="" method="post">
     {% csrf_token %}
     {{ form|crispy }}
-    <button class="mt-5 w-full text-white bg-blue-500 hover:bg-blue-600 px-3 py-3 rounded-md" type="submit" name="login">Login</button>
+    <button class="mt-5 w-full text-white bg-blue-500 hover:bg-blue-600 px-3 py-3 rounded-md" type="submit" name="login">Submit</button>
   </form>
 </div>
+<br>
 {% endblock content %}

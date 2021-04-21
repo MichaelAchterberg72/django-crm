@@ -13,7 +13,7 @@
       {% if request.user.is_organiser %}
       <a href="{% url 'Agents:AgentsList' %}" class="mr-5 hover:text-gray-900">Agents</a>
       {% endif %}
-      <a href="{% url 'Leads:LeadList' %}" class="mr-5 hover:text-gray-900">Leads</a>
+      <a href="{% url 'Contacts:ContactList' %}" class="mr-5 hover:text-gray-900">Contacts</a>
       {% endif %}
     </nav>
     {% if request.user.is_authenticated %}

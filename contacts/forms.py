@@ -1,10 +1,10 @@
 from django import forms
-from .models import Lead, Agent
+from .models import Contact, Agent
 
 
-class LeadForm(forms.ModelForm):
+class ContactForm(forms.ModelForm):
     class Meta:
-        model = Lead
+        model = Contact
         fields = {'first_name', 'last_name', 'age', 'agent', 'description',     'phone_number', 'email'}
 
 
@@ -18,7 +18,7 @@ class AssignAgentForm(forms.Form):
         self.fields["agent"].queryset = agents
 
 
-class LeadCategoryUpdateForm(forms.ModelForm):
+class ContactCategoryUpdateForm(forms.ModelForm):
     class Meta:
-        model = Lead
+        model = Contact
         fields = {'category',}

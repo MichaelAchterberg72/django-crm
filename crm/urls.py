@@ -7,15 +7,14 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import handler404, handler500, url  # noqa
 
-#from leads.views import landing_page
-from leads.views import LandingPageView
+from contacts.views import LandingPageView
 from users.views import SignupView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', LandingPageView.as_view(), name='landing-page'),
-    path('leads/', include('leads.urls', namespace='Leads')),
+    path('contacts/', include('contacts.urls', namespace='Contacts')),
     path('agents/', include('agents.urls', namespace='Agents')),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),

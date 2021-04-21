@@ -8,7 +8,7 @@ from django.http import HttpResponse
 from django.views import generic
 from .mixins import OrganiserAndLoginRequiredMixin
 
-from leads.models import Agent
+from .models import Agent
 
 from .forms import AgentModelForm
 

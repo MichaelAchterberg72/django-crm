@@ -6,5 +6,5 @@ class OrganiserAndLoginRequiredMixin(AccessMixin):
     """Verify that the current user is authenticated and an organiser"""
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated or not request.user.is_organiser:
-            return redirect('Leads:LeadList')
+            return redirect('Contacts:ContactList')
         return super().dispatch(request, *args, **kwargs)

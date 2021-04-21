@@ -4,7 +4,7 @@ from django.db.models.signals import post_save
 from django.contrib.auth.models import AbstractUser
 
 from users.models import CustomUser, UserProfile
-
+from agents.models import Agent
 
 SOURCE_CHOICES = (
     ('YT', 'Youtube'),
@@ -12,7 +12,7 @@ SOURCE_CHOICES = (
     ('NL', 'Newsletter'),
 )
 
-class Lead(models.Model):
+class Contact(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     age = models.IntegerField(default=0)
@@ -21,8 +21,8 @@ class Lead(models.Model):
     phone_number = PhoneNumberField(null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     organisation = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    agent = models.ForeignKey('Agent', null=True, blank=True, on_delete=models.SET_NULL)
-    category = models.ForeignKey("Category", related_name="leads", null=True, blank=True, on_delete=models.SET_NULL)
+    agent = models.ForeignKey(Agent, null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey("Category", related_name="contacts", null=True, blank=True, on_delete=models.SET_NULL)
 
     phoned = models.BooleanField(default=False)
     source = models.CharField(choices=SOURCE_CHOICES, max_length=100)
@@ -32,15 +32,6 @@ class Lead(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-
-
-class Agent(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    organisation = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    age = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.user.username
 
 
 class Category(models.Model):
